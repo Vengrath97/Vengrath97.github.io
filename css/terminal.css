@@ -90,7 +90,8 @@ a { color: inherit; text-decoration: none; }
 /* Legacy content uses these adapters until each individual archive document is rebuilt. */
 body:not(.terminal-site) { --ink: #070806; --paper: #f7efc8; --gold: #ffd400; --gold-dark: #a78900; --blood: #ffd400; background: var(--ink); color: var(--paper); font-family: 'Share Tech Mono', monospace; }
 body:not(.terminal-site) .site-header { align-items: center; background: rgba(7,8,6,.92); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 18px clamp(20px,4vw,70px); position: sticky; top: 0; z-index: 40; }
-body:not(.terminal-site) .wordmark { color: var(--signal); font: 700 13px 'Share Tech Mono', monospace; letter-spacing: .14em; }
+body:not(.terminal-site) .wordmark { color: var(--signal); font: 0/1 'Share Tech Mono', monospace; letter-spacing: .14em; }
+body:not(.terminal-site) .wordmark::after { content: 'VENGRATH // ARCHIVE'; font-size: 13px; }
 body:not(.terminal-site) .wordmark span { color: var(--paper); }
 body:not(.terminal-site) .site-nav { display: flex; gap: 18px; }
 body:not(.terminal-site) .site-nav a { color: var(--muted); font: 11px 'Share Tech Mono', monospace; letter-spacing: .08em; }
