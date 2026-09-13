@@ -2,85 +2,34 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070806">
-  <meta name="description" content="Vengrath — archiwum kampanii, światów, materiałów i narzędzi RPG.">
-  <title>VENGRATH // ARCHIWUM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Vengrath — terminal dostępu do kampanii, światów i narzędzi RPG.">
+  <title>VENGRATH // ACCESS TERMINAL</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="terminal-site">
-  <header class="terminal-header">
-    <a class="terminal-brand" href="./">VENGRATH <span>// ARCHIVE</span></a>
-    <nav class="terminal-nav" aria-label="Główna nawigacja">
-      <a href="pages/Campaigns/">01 KAMPANIE</a>
-      <a href="pages/Projects/">02 PROJEKTY</a>
-      <a href="pages/Blog/">03 DZIENNIK</a>
-      <a href="pages/AboutMe/">04 O MNIE</a>
-      <a href="pages/charactermancer/">CM NARZĘDZIA</a>
-    </nav>
-  </header>
-
-  <main class="terminal-main">
-    <section class="terminal-hero" aria-labelledby="home-title">
-      <div>
-        <p class="terminal-kicker">[ SYSTEM ONLINE / WERSJA 02.0 / RPG ARCHIVE ]</p>
-        <h1 id="home-title" class="terminal-title">ŚWIATY<br><em>PRZY STOLE.</em></h1>
-        <p class="terminal-copy">Archiwum prowadzonych kampanii, budowanych światów i rzeczy, które powstają między jedną sesją a następną. Wejdź do katalogu albo wybierz właściwy kanał transmisji.</p>
-      </div>
-      <aside class="terminal-aside">
-        <p><strong>OPERATOR</strong><br>Vengrath / Mistrz Podziemi</p>
-        <p><strong>ARCHIWUM</strong><br>Kampanie · projekty · notatki · narzędzia</p>
-        <p><strong>STATUS</strong><br><span class="signal">● ACTIVE</span><br><span data-terminal-clock></span></p>
-      </aside>
-    </section>
-
-    <section class="terminal-section" id="channels" aria-labelledby="channels-title">
-      <div class="section-bar">
-        <p class="section-label" id="channels-title">[ KANAŁY ARCHIWUM ]</p>
-        <p class="section-note">WYBIERZ PUNKT WEJŚCIA</p>
-      </div>
-      <div class="terminal-grid">
-        <a class="terminal-card" href="pages/Campaigns/">
-          <span class="terminal-card-number">01 / LIVE TABLES</span>
-          <h2>Kampanie</h2>
-          <p>To, co aktualnie dzieje się przy stole. Sesje, systemy i prowadzone historie. ↗</p>
-        </a>
-        <a class="terminal-card" href="pages/Projects/">
-          <span class="terminal-card-number">02 / WORLD FILES</span>
-          <h2>Projekty</h2>
-          <p>Autorskie światy, gotowe materiały oraz projekty w trakcie budowy. ↗</p>
-        </a>
-        <a class="terminal-card" href="pages/Blog/">
-          <span class="terminal-card-number">03 / FIELD NOTES</span>
-          <h2>Dziennik</h2>
-          <p>Notatki z prowadzenia, budowy strony i pracy nad kampaniami. ↗</p>
-        </a>
-        <a class="terminal-card" href="pages/AboutMe/">
-          <span class="terminal-card-number">04 / OPERATOR FILE</span>
-          <h2>Vengrath</h2>
-          <p>Kim jest człowiek po drugiej stronie ekranu Mistrza Podziemi. ↗</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="terminal-section" aria-labelledby="tool-title">
-      <div class="section-bar">
-        <p class="section-label" id="tool-title">[ MODUŁ NARZĘDZIOWY ]</p>
-        <p class="section-note">INTERAKTYWNY</p>
-      </div>
-      <a class="terminal-card terminal-card--wide" href="pages/charactermancer/">
-        <span class="terminal-card-number">CM / HEARTWELL CHARACTER CONSOLE</span>
-        <h2>Charactermancer<br><span class="signal">Heartwell.</span></h2>
-        <p>Pełny kreator postaci dla świata Książąt Heartwell. Otwórz moduł ↗</p>
-      </a>
-    </section>
+<body class="access-terminal">
+  <main class="access-screen" id="access-screen">
+    <div class="access-wrap">
+      <p class="access-kicker">SYSTEM // VENGRATH ARCHIVE // NODE 01</p>
+      <h1 class="access-title">ACCESS<br><span>TERMINAL</span></h1>
+      <p class="access-subtitle">WORLD ARCHIVE // LIVE TABLES // RESTRICTED MATERIALS</p>
+      <nav class="access-menu" aria-label="Wybór kanału">
+        <a href="pages/Campaigns/" data-access-link data-access-label="LIVE CAMPAIGNS">01 // LIVE CAMPAIGNS</a>
+        <a href="pages/Projects/" data-access-link data-access-label="WORLD ARCHIVE">02 // WORLD ARCHIVE</a>
+        <a href="pages/Blog/" data-access-link data-access-label="FIELD NOTES">03 // FIELD NOTES</a>
+        <a href="pages/AboutMe/" data-access-link data-access-label="OPERATOR FILE">04 // OPERATOR FILE</a>
+        <a href="pages/charactermancer/" data-access-link data-access-label="CHARACTER CONSOLE">05 // CHARACTER CONSOLE</a>
+      </nav>
+      <div class="access-status"><span class="online">● NODE ONLINE</span><span>↑ ↓ NAVIGATE</span><span>ENTER SELECT</span></div>
+    </div>
   </main>
-
-  <footer class="terminal-footer">
-    <span>VENGRATH // ARCHIVE</span>
-    <span>ŻADEN ŚWIAT NIE JEST ZAMKNIĘTY.</span>
-    <span>© 2026</span>
-  </footer>
-  <script src="js/terminal.js"></script>
+  <section class="access-console" id="access-console" aria-live="polite">
+    <div class="console-line"><span>VENGRATH // ACCESS PROCESS</span><span>SECURE NODE</span></div>
+    <div class="console-log" id="access-log"></div>
+    <div class="console-progress"><i id="access-bar"></i></div>
+    <p class="console-progress-label">TRANSFERRING CONTROL…</p>
+  </section>
+  <script src="js/access-terminal.js"></script>
 </body>
 </html>
