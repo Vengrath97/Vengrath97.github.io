@@ -1,6 +1,6 @@
 const gallery = document.querySelector('#illustration-gallery');
 const IMAGE_EXTENSIONS = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
-const API_ROOT = 'https://api.github.com/repos/vengrathdm/vengrathdm.github.io/contents/illustrations/graphics?ref=main';
+const API_ROOT = 'https://api.github.com/repos/Vengrath97/Vengrath97.github.io/contents/illustrations/graphics?ref=main';
 let lightbox;
 
 if (gallery) loadGallery().catch(handleError);
