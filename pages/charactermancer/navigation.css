@@ -1,0 +1,39 @@
+.site-home-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid var(--gold-dark);
+  background: linear-gradient(#f1eadf, #d5cab8);
+  color: var(--blue-deep);
+  box-shadow: 0 6px 16px var(--shadow-deep);
+  font-family: var(--header-font);
+  font-size: 12px;
+  letter-spacing: .8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 100ms ease;
+}
+
+.site-home-link:hover {
+  border-color: var(--blood);
+  color: var(--blood);
+  background: var(--white);
+  transform: translateY(-1px);
+}
+
+.site-home-link:focus-visible {
+  outline: 2px solid var(--blood);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .site-home-link {
+    top: 10px;
+    left: 10px;
+  }
+}

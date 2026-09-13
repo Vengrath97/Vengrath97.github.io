@@ -1,0 +1,16 @@
+[
+{"title":"Heroes of Baldur","description":"Wtorkowa kampania D&D 5e prowadzona przez Vengratha.","type":"KAMPANIA","tags":["D&D 5e","wtorek","Arcanum Worlds"],"url":"pages/Campaigns/"},
+{"title":"Curse of Strahd — Legendy Barovii","description":"Środowa kampania D&D 5e.","type":"KAMPANIA","tags":["D&D 5e","środa","Strahd"],"url":"pages/Campaigns/"},
+{"title":"Sands of Doom","description":"Czwartkowa kampania D&D 5e.","type":"KAMPANIA","tags":["D&D 5e","czwartek"],"url":"pages/Campaigns/"},
+{"title":"Echtra midst the Sidhe","description":"Autorska heroic fantasy o Dzikim Gonie i wiecznej zimie.","type":"PROJEKT","tags":["D&D 5e","Fae","Dziki Gon","Irgaela"],"url":"pages/Projects/echtra-midst-the-sidhe/"},
+{"title":"Widma Szarolasu","description":"Legacy sandbox campaign o baronii nawiedzanej przez smoczą przeszłość.","type":"PROJEKT","tags":["D&D 5e","legacy"],"url":"pages/Projects/widma-szarolasu/"},
+{"title":"Odłamki Przeszłości","description":"Poszukiwanie fragmentów upadłej cywilizacji.","type":"PROJEKT","tags":["D&D 5e","legacy"],"url":"pages/Projects/odlamki-przeszlosci/"},
+{"title":"Książęta Heartwell","description":"Gothic horror w przemysłowym mieście siedmiu darklordów.","type":"PROJEKT","tags":["D&D 5e","Heartwell","gothic horror"],"url":"pages/Projects/ksiazeta-heartwell/"},
+{"title":"Samotnie przeciw Jedności","description":"Lovecraftiańskie śledztwo inspirowane Ubbo-Sathlą.","type":"PROJEKT","tags":["Call of Cthulhu 7e","Lovecraft","Ubbo-Sathla"],"url":"pages/Projects/samotnie-przeciw-jednosci/"},
+{"title":"Charactermancer Heartwell","description":"Kreator postaci jako osobne narzędzie.","type":"NARZĘDZIE","tags":["charactermancer","D&D 5e","Heartwell"],"url":"pages/charactermancer/"},
+{"title":"Trochę porządków pod maską. I galeria, która wreszcie działa.","description":"Porządki w kodzie strony, automatyczna galeria ilustracji i walka z CSS-em.","type":"BLOG","tags":["WWW","galeria","CSS"],"url":"pages/Blog/posts/przebudowa-strony-i-galerii/"},
+{"title":"Otwieramy stronę. A teraz zaczynamy grać.","description":"Start strony Vengratha i pisemnej kroniki sesji oraz projektów.","type":"BLOG","tags":["RPG","ogłoszenia"],"url":"pages/Blog/posts/otwieramy-strone/"},
+{"title":"Ilustracje","description":"Szkice, grafiki i obrazy Vengratha.","type":"GALERIA","tags":["rysunki","grafika"],"url":"pages/AboutMe/illustrations/"},
+{"title":"Kompendium Świata Echtra","description":"Żywe archiwum Irgaeli, miejsc, ludów, bogów, duchów i istot.","type":"LORE","tags":["Echtra","Irgaela","Sidhe"],"url":"pages/Projects/echtra-midst-the-sidhe/lore-compendium/"},
+{"title":"Kompendium Heartwell","description":"Warstwa lore miasta, darklordów, dzielnic, frakcji i postaci.","type":"LORE","tags":["Heartwell","darklordowie","frakcje"],"url":"pages/Projects/ksiazeta-heartwell/lore-compendium/"}
+]
