@@ -1,4 +1,0 @@
-Inbox
-Projects
-graphics/inbox.svg
-subpages/inbox.html

@@ -1,17 +1,13 @@
-# Glass Grid — GitHub Pages
+# Księga Mistrza Podziemi
 
-The site is split into structure, styling, behavior, and one-file-per-tile content.
+Panorama materiałów Mistrza Gry. Każdy kafel ma własny plik w `V/`.
 
-## Add a tile
-Create one file in `V/`, for example `V/research.txt`: 
-
+Format pliku:
 ```text
-Research
-Reference
-graphics/research.jpg
-subpages/research.html
+Tytuł
+Tag
+Grafika
+Link docelowy
 ```
 
-The four lines are: title, tag, graphic path, destination link. Then add the filename to `V/index.json`. No JavaScript changes are needed.
-
-`app.js` loads the manifest and each tile file in the browser. This is a static GitHub Pages architecture; use GitHub Pages or a local HTTP server rather than opening `index.html` directly with `file://`.
+Lista plików znajduje się w `V/index.json`. Strona jest statyczna i przeznaczona dla GitHub Pages. Lokalnie uruchom `python3 -m http.server` w katalogu projektu i otwórz `http://localhost:8000/`.

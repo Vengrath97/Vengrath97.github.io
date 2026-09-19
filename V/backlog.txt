@@ -1,4 +1,0 @@
-Backlog
-Archive
-graphics/backlog.svg
-subpages/backlog.html

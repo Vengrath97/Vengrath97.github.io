@@ -1,4 +1,0 @@
-Bookmarks
-Reference
-graphics/bookmarks.svg
-subpages/bookmarks.html

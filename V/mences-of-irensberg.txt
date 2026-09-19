@@ -1,0 +1,4 @@
+Mences of Irensberg
+Kampania
+graphics/mences-of-irensberg.svg
+subpages/mences-of-irensberg.html

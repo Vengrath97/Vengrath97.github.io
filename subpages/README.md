@@ -1,3 +1,1 @@
-# Subpages
-
-Place the real content pages here. The panorama expects paths such as `subpages/overview.html`.
+Tutaj umieszczaj właściwe podstrony kampanii i materiałów.

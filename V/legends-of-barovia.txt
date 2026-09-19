@@ -1,0 +1,4 @@
+Legends of Barovia
+Kampania
+graphics/legends-of-barovia.svg
+subpages/legends-of-barovia.html

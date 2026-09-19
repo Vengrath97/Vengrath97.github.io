@@ -1,4 +1,0 @@
-Research
-Reference
-graphics/research.svg
-subpages/research.html

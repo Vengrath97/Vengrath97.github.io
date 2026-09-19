@@ -1,0 +1,4 @@
+Samotnie przeciw Jedności
+Kampania
+graphics/samotnie-przeciw-jednosci.svg
+subpages/samotnie-przeciw-jednosci.html

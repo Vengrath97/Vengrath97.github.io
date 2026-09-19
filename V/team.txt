@@ -1,4 +1,0 @@
-Team
-People
-graphics/team.svg
-subpages/team.html

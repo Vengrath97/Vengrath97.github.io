@@ -1,0 +1,4 @@
+Moje Prace Graficzne
+Grafika
+graphics/moje-prace-graficzne.svg
+subpages/moje-prace-graficzne.html

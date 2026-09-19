@@ -1,4 +1,0 @@
-Metrics
-Projects
-graphics/metrics.svg
-subpages/metrics.html

@@ -1,4 +1,0 @@
-Guidelines
-Reference
-graphics/guidelines.svg
-subpages/guidelines.html

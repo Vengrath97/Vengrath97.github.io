@@ -1,4 +1,0 @@
-Assets
-Media
-graphics/assets.svg
-subpages/assets.html

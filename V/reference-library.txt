@@ -1,4 +1,0 @@
-Reference Library
-Reference
-graphics/reference-library.svg
-subpages/reference-library.html

@@ -1,4 +1,0 @@
-Roadmap
-Projects
-graphics/roadmap.svg
-subpages/roadmap.html

@@ -1,0 +1,4 @@
+Ghoul Hour
+Sesje
+graphics/ghoul-hour.svg
+subpages/ghoul-hour.html

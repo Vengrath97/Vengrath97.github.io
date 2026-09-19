@@ -1,4 +1,0 @@
-Documents
-Projects
-graphics/documents.svg
-subpages/documents.html

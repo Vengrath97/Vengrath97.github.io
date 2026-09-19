@@ -1,4 +1,0 @@
-People Directory
-People
-graphics/people-directory.svg
-subpages/people-directory.html

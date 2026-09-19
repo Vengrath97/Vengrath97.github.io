@@ -1,4 +1,0 @@
-Notes
-Ideas
-graphics/notes.svg
-subpages/notes.html

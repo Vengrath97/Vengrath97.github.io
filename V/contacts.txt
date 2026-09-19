@@ -1,4 +1,0 @@
-Contacts
-People
-graphics/contacts.svg
-subpages/contacts.html

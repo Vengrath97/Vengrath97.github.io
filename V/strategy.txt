@@ -1,4 +1,0 @@
-Strategy
-Projects
-graphics/strategy.svg
-subpages/strategy.html

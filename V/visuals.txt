@@ -1,4 +1,0 @@
-Visuals
-Media
-graphics/visuals.svg
-subpages/visuals.html
