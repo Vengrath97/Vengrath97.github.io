@@ -1,4 +1,4 @@
-Maski Nyarlotepa
+Maski Nyarlathotepa
 Kampania
 graphics/maski-nyarlotepa.svg
 subpages/maski-nyarlotepa.html

@@ -1,31 +1,21 @@
-# Księga Mistrza Podziemi
+# Vengrath
 
-Każdy fragment panoramy ma własny plik w `V/`.
+Panorama kampanii i materiałów Mistrza Gry.
 
-Format pliku:
+## Struktura
 
-```text
-Tytuł
-Tag
-Grafika
-Link docelowy
-```
+- `index.html` — strona główna
+- `styles.css` — grafitowo-szary styl, odstępy między shardami i typografia
+- `app.js` — generowanie nieregularnej panoramy, filtry, wyszukiwanie i nawigacja
+- `V/` — dane kafli; każdy plik ma 4 linie: tytuł, tag, grafika, link
+- `graphics/` — grafiki kafli oraz logo MG
 
-Lokalnie uruchom:
+## Uruchomienie lokalne
 
 ```bash
 python3 -m http.server
 ```
 
-i wejdź na `http://localhost:8000/`.
+Następnie otwórz `http://localhost:8000/`.
 
-Na GitHub Pages ta sama struktura działa bez zmian.
-
-`V/*.txt` są źródłem danych. `V/index.json` zawiera listę tych plików.
-
-
-## Grafiki kart
-
-Tytuły nie są wyświetlane jako tekst na fragmentach panoramy. Karta pokazuje wyłącznie grafikę.
-
-Grafiki zachowują proporcje źródłowego obrazu (`image ratio`). Obraz jest dopasowywany do obszaru fragmentu bez rozciągania; nieregularny kształt fragmentu nadal działa jako maska/klip.
+Strona jest przygotowana do GitHub Pages i używa ścieżek względnych.
