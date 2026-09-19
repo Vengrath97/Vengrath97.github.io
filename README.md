@@ -21,3 +21,11 @@ Następnie otwórz `http://localhost:8000/`.
 Strona jest przygotowana do GitHub Pages i używa ścieżek względnych.
 
 Obrazy w shardach zachowują oryginalne proporcje (`preserveAspectRatio: xMidYMid slice`): wypełniają cały kształt kafla, a nadmiar obrazu jest przycinany po bokach albo od góry/dołu zależnie od proporcji.
+
+## Mock-karty
+
+Dodano 60 kart testowych `Mock_01`–`Mock_60`. Każda ma format:
+- nazwa: `Mock_XX`
+- zawartość/tag: `MockXX`
+- grafika: wspólna `graphics/Default.svg`
+- link docelowy: `./index.html`

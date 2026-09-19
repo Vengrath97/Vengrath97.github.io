@@ -1,0 +1,4 @@
+Mock_42
+Mock42
+graphics/Default.svg
+./index.html
