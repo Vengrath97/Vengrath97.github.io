@@ -1,6 +1,6 @@
 const gallery = document.querySelector('#illustration-gallery');
 const IMAGE_EXTENSIONS = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
-const API_ROOT = 'https://api.github.com/repos/Vengrath97/Vengrath97.github.io/contents/illustrations/graphics?ref=main';
+const API_ROOT = 'https://api.github.com/repos/vengrath97/vengrath97.github.io/contents/illustrations/graphics?ref=main';
 let lightbox;
 
 if (gallery) loadGallery().catch(handleError);
@@ -8,7 +8,7 @@ if (gallery) loadGallery().catch(handleError);
 async function loadGallery() {
   const files = await getFiles(API_ROOT);
   files.sort((a,b) => a.name.localeCompare(b.name, 'pl'));
-  if (!files.length) { gallery.innerHTML = '<p class="project-empty">Brak ilustracji do wyświetlenia.</p>'; return; }
+  if (!files.length) { gallery.innerHTML = '<p class="empty-state">Brak ilustracji do wyświetlenia.</p>'; return; }
   gallery.replaceChildren(...files.map(createItem));
 }
 async function getFiles(url) {
@@ -31,4 +31,4 @@ function openLightbox(file){if(!lightbox)lightbox=createLightbox();const image=l
 function createLightbox(){const overlay=document.createElement('div');overlay.className='gallery-lightbox';overlay.hidden=true;overlay.innerHTML='<button class="gallery-lightbox__close" type="button" aria-label="Zamknij podgląd">×</button><div class="gallery-lightbox__content" role="dialog" aria-modal="true" aria-label="Powiększona ilustracja"><img class="gallery-lightbox__image" alt=""><p class="gallery-lightbox__caption"></p></div>';const close=overlay.querySelector('.gallery-lightbox__close'),content=overlay.querySelector('.gallery-lightbox__content');close.addEventListener('click',closeLightbox);overlay.addEventListener('click',e=>{if(e.target===overlay)closeLightbox();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)closeLightbox();});document.body.append(overlay);return overlay;}
 function closeLightbox(){if(!lightbox)return;lightbox.hidden=true;document.body.classList.remove('gallery-lightbox-open');}
 function formatTitle(filename){return filename.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim().replace(/(^|\s)\S/g,l=>l.toUpperCase());}
-function handleError(error){console.error('Illustration gallery error:',error);gallery.innerHTML='<p class="project-empty">Nie udało się załadować galerii ilustracji.</p>';}
+function handleError(error){console.error('Illustration gallery error:',error);gallery.innerHTML='<p class="empty-state">Nie udało się załadować galerii ilustracji.</p>';}

@@ -1,0 +1,91 @@
+/*
+  DESIGN TOKENS
+  Single source of truth for the visual language of the site.
+  Every other stylesheet reads from these custom properties —
+  change a value here and it propagates everywhere.
+
+  Identity: a Dungeon Master's working desk. Paper, ink, brass
+  instruments, sealing wax, contour lines on a hand-drawn map.
+*/
+
+:root{
+
+  /* ---- color: paper & ink ---- */
+  --paper:        #F1ECE0;   /* base page — aged linen */
+  --paper-raised: #FAF7EF;   /* cards / panels sitting above the page */
+  --paper-deep:   #E4DCC8;   /* recessed areas, table rows, wells */
+  --ink:          #1E241F;   /* primary text — deep spruce-black, not pure black */
+  --ink-soft:     #4B5049;   /* secondary text */
+  --ink-faint:    #7B7E73;   /* tertiary / metadata text */
+
+  /* ---- color: accents ---- */
+  --rust:         #A64B2A;   /* sealing wax — primary accent, links, active state */
+  --rust-deep:    #833B20;   /* rust hover/pressed */
+  --pine:         #2F4A3D;   /* map contour green — secondary accent */
+  --pine-deep:    #223729;
+  --brass:        #8C7A4E;   /* hairlines, borders, frames */
+  --brass-soft:   rgba(140,122,78,.35);
+  --brass-faint:  rgba(140,122,78,.16);
+
+  /* ---- color: dark inversion (footer, night mode blocks) ---- */
+  --night:        #14201B;
+  --night-raised: #1C2921;
+  --on-night:     #E9E3D2;
+  --on-night-soft:#A9B0A4;
+
+  /* ---- status colors (used sparingly, e.g. campaign status) ---- */
+  --status-active:  var(--pine);
+  --status-planned: var(--rust);
+  --status-archive: var(--ink-faint);
+
+  /* ---- type families ---- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* ---- type scale (fluid) ---- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.375rem;
+  --text-xl:   clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  --text-2xl:  clamp(2.5rem, 1.8rem + 3vw, 4.5rem);
+  --text-3xl:  clamp(3.2rem, 2.2rem + 4.5vw, 6.5rem);
+
+  /* ---- spacing scale ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+  --space-10: 9rem;
+
+  /* ---- layout ---- */
+  --content-width: 1180px;
+  --content-narrow: 720px;
+  --edge: 6vw;
+  --radius: 3px; /* small & deliberate — this is a paper-and-ink site, not a rounded-card kit */
+
+  /* ---- motion ---- */
+  --ease: cubic-bezier(.22,.7,.2,1);
+  --duration: .3s;
+
+  /* ---- elevation (kept minimal; hairlines do most of the work) ---- */
+  --shadow-soft: 0 12px 30px -18px rgba(20,26,20,.35);
+  --shadow-lift: 0 20px 45px -20px rgba(20,26,20,.45);
+}
+
+@media (prefers-color-scheme: dark){
+  /* The site is intentionally paper-toned in both schemes — a lit desk
+     lamp on a dark room, rather than inverting to a generic dark UI.
+     Only the deepest surfaces shift, to sit comfortably at night. */
+  :root{
+    --paper:        #E9E2D1;
+    --paper-raised: #F3EEE0;
+  }
+}

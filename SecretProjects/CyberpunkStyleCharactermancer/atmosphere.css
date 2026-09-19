@@ -1,0 +1,38 @@
+/* =========================================================
+   VENGRATH — SHARED ATMOSPHERE
+   A subtle version of the host site's night / forest / blood
+   palette, so the Charactermancer feels like part of Vengrath
+   rather than a separate application.
+   ========================================================= */
+
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(123, 34, 41, .16), transparent 34%),
+    radial-gradient(ellipse at 88% 18%, rgba(49, 69, 60, .22), transparent 38%),
+    radial-gradient(ellipse at 72% 88%, rgba(45, 61, 69, .18), transparent 42%),
+    radial-gradient(ellipse at 28% 82%, rgba(168, 137, 85, .07), transparent 34%);
+}
+
+.ambient-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(168, 137, 85, .12) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 74% 38%, rgba(168, 137, 85, .08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 46% 78%, rgba(168, 137, 85, .06) 0 1px, transparent 1.5px);
+  background-size: 210px 210px, 270px 270px, 240px 240px;
+  opacity: .18;
+}
+
+.ambient-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(16, 17, 15, .48) 100%);
+}

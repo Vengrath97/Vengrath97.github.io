@@ -1,0 +1,167 @@
+<!-- Interaktywna mapa Heartwell — nowa wersja w stylu SecretProjects/Heartwell -->
+<article class="sheet article-source" data-section="atlas" data-section-order="1" data-section-label="Atlas" data-section-head="Mapa Heartwell" data-id="mapa-heartwell" data-name="Mapa Heartwell" data-kicker="Atlas miasta" data-sub="Lokacje, dzielnice i punkty zainteresowania">
+  <div class="article-content">
+    <style>
+      .hw-map-note{margin:18px 0 28px}
+      .hw-map{position:relative;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.75fr);align-items:start;gap:14px;margin:28px 0 8px;padding:14px;background:rgba(23,17,56,.08);border:1px solid rgba(40,30,93,.28);box-shadow:inset 0 0 0 1px rgba(201,182,126,.25)}
+      .hw-map input{position:fixed;top:0;left:0;inline-size:1px;block-size:1px;opacity:0;pointer-events:none}
+      .hw-map__stage{position:relative;overflow:hidden;border:2px solid #beb4a0;background:#171138;line-height:0}
+      .hw-map__image{display:block;width:100%;height:auto;margin:0;border:0;box-shadow:none;user-select:none;-webkit-user-drag:none}
+      .hw-map__marker{position:absolute;z-index:4;display:block;width:21px;height:21px;padding:0;box-sizing:border-box;border:3px solid #f7f0e4;border-radius:50%;background:#943a37;box-shadow:0 0 0 4px rgba(40,30,93,.88),0 3px 12px rgba(0,0,0,.55);transform:translate(-50%,-50%);cursor:pointer}
+      .hw-map__marker:after{content:"";position:absolute;inset:-9px;border:1px solid rgba(148,58,55,.72);border-radius:50%;animation:hw-pulse 2s ease-in-out infinite}
+      .hw-map__marker span{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);min-height:38px;max-width:240px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;line-height:1.2;padding:7px 10px;color:#fff;background:rgba(23,17,56,.96);border:1px solid #beb4a0;font:13px Voltaire,sans-serif;opacity:0;pointer-events:none;transition:opacity .15s ease,transform .15s ease}
+      .hw-map__marker:hover span,.hw-map__marker:focus-visible span{opacity:1;transform:translateX(-50%) translateY(-3px)}
+      .hw-map__details{position:sticky;top:16px;margin:0;padding:20px 22px;min-height:170px;box-sizing:border-box;background:rgba(247,240,228,.97);border:1px solid #beb4a0;color:#5f5548}
+      .hw-map__detail{display:none}
+      .hw-map__detail strong{display:block;margin-bottom:4px;color:#943a37;font:11px Voltaire,sans-serif;letter-spacing:1.6px;text-transform:uppercase}
+      .hw-map__detail h3{margin:0 0 7px!important;padding:0!important;border:0!important;color:#281e5d!important;font:400 27px Voltaire,sans-serif!important}
+      .hw-map__detail p{margin:0 0 10px;font:16px/1.5 'Brygada 1918',serif}
+      .hw-map__detail a{font:14px Voltaire,sans-serif;color:#943a37}
+      .hw-map__hint{margin:10px 2px 0;color:#6d6254;font:12px/1.45 'Cutive Mono',monospace}
+      #hw-palac:checked~.hw-map__stage .m-palac,#hw-duma:checked~.hw-map__stage .m-duma,#hw-paw:checked~.hw-map__stage .m-paw,#hw-opera:checked~.hw-map__stage .m-opera,#hw-galeria:checked~.hw-map__stage .m-galeria,#hw-akademia:checked~.hw-map__stage .m-akademia,#hw-ogrody:checked~.hw-map__stage .m-ogrody,#hw-katedra:checked~.hw-map__stage .m-katedra,#hw-cyrk:checked~.hw-map__stage .m-cyrk,#hw-maski:checked~.hw-map__stage .m-maski,#hw-samotnia:checked~.hw-map__stage .m-samotnia,#hw-forteca:checked~.hw-map__stage .m-forteca,#hw-sad:checked~.hw-map__stage .m-sad,#hw-manufaktura:checked~.hw-map__stage .m-manufaktura,#hw-arsenal:checked~.hw-map__stage .m-arsenal,#hw-szpital1:checked~.hw-map__stage .m-szpital1,#hw-szpital2:checked~.hw-map__stage .m-szpital2,#hw-apteka:checked~.hw-map__stage .m-apteka,#hw-suszarnia:checked~.hw-map__stage .m-suszarnia,#hw-aurelia:checked~.hw-map__stage .m-aurelia,#hw-helena:checked~.hw-map__stage .m-helena,#hw-marchetti:checked~.hw-map__stage .m-marchetti,#hw-brzask:checked~.hw-map__stage .m-brzask,#hw-pawbar:checked~.hw-map__stage .m-pawbar,#hw-ossuary:checked~.hw-map__stage .m-ossuary,#hw-rynek:checked~.hw-map__stage .m-rynek,#hw-smakosze:checked~.hw-map__stage .m-smakosze,#hw-targ:checked~.hw-map__stage .m-targ,#hw-sabine:checked~.hw-map__stage .m-sabine,#hw-falcone:checked~.hw-map__stage .m-falcone,#hw-kurogane:checked~.hw-map__stage .m-kurogane,#hw-park:checked~.hw-map__stage .m-park,#hw-reyes:checked~.hw-map__stage .m-reyes{background:#c9b67e;box-shadow:0 0 0 5px #943a37,0 0 20px rgba(201,182,126,.8)}
+      #hw-palac:checked~.hw-map__details .d-palac,#hw-duma:checked~.hw-map__details .d-duma,#hw-paw:checked~.hw-map__details .d-paw,#hw-opera:checked~.hw-map__details .d-opera,#hw-galeria:checked~.hw-map__details .d-galeria,#hw-akademia:checked~.hw-map__details .d-akademia,#hw-ogrody:checked~.hw-map__details .d-ogrody,#hw-katedra:checked~.hw-map__details .d-katedra,#hw-cyrk:checked~.hw-map__details .d-cyrk,#hw-maski:checked~.hw-map__details .d-maski,#hw-samotnia:checked~.hw-map__details .d-samotnia,#hw-forteca:checked~.hw-map__details .d-forteca,#hw-sad:checked~.hw-map__details .d-sad,#hw-manufaktura:checked~.hw-map__details .d-manufaktura,#hw-arsenal:checked~.hw-map__details .d-arsenal,#hw-szpital1:checked~.hw-map__details .d-szpital1,#hw-szpital2:checked~.hw-map__details .d-szpital2,#hw-apteka:checked~.hw-map__details .d-apteka,#hw-suszarnia:checked~.hw-map__details .d-suszarnia,#hw-aurelia:checked~.hw-map__details .d-aurelia,#hw-helena:checked~.hw-map__details .d-helena,#hw-marchetti:checked~.hw-map__details .d-marchetti,#hw-brzask:checked~.hw-map__details .d-brzask,#hw-pawbar:checked~.hw-map__details .d-pawbar,#hw-ossuary:checked~.hw-map__details .d-ossuary,#hw-rynek:checked~.hw-map__details .d-rynek,#hw-smakosze:checked~.hw-map__details .d-smakosze,#hw-targ:checked~.hw-map__details .d-targ,#hw-sabine:checked~.hw-map__details .d-sabine,#hw-falcone:checked~.hw-map__details .d-falcone,#hw-kurogane:checked~.hw-map__details .d-kurogane,#hw-park:checked~.hw-map__details .d-park,#hw-reyes:checked~.hw-map__details .d-reyes{display:block}
+      @keyframes hw-pulse{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
+      @media(max-width:800px){.hw-map{grid-template-columns:1fr}.hw-map__details{position:static;margin-top:0}}
+      @media(max-width:650px){.hw-map{padding:7px}.hw-map__marker{width:18px;height:18px}.hw-map__marker span{font-size:11px;max-width:170px}.hw-map__details{padding:16px;min-height:190px}.hw-map__detail h3{font-size:23px!important}}
+      @media(prefers-reduced-motion:reduce){.hw-map__marker:after{animation:none}.hw-map__marker span{transition:none}}
+    </style>
+
+    <p class="entry__kicker">Atlas miasta</p>
+    <h2 class="entry__title">Mapa Heartwell</h2>
+    <p class="entry__sub">Lokacje, dzielnice i punkty zainteresowania</p>
+    <ul class="entry__tags">
+      <li class="tag">Atlas</li>
+      <li class="tag">Lokacje</li>
+      <li class="tag tag--sin">Interaktywne</li>
+    </ul>
+
+    <p class="entry__lead">Mapa miasta w wersji przeniesionej do nowego Kompendium. Kliknij punkt na mapie, aby zobaczyć jego krótki opis i przejść do odpowiedniego wpisu dzielnicy.</p>
+
+    <div class="hw-map">
+      <input id="hw-palac" name="hw-loc" type="radio" checked>
+      <input id="hw-duma" name="hw-loc" type="radio">
+      <input id="hw-paw" name="hw-loc" type="radio">
+      <input id="hw-opera" name="hw-loc" type="radio">
+      <input id="hw-galeria" name="hw-loc" type="radio">
+      <input id="hw-akademia" name="hw-loc" type="radio">
+      <input id="hw-ogrody" name="hw-loc" type="radio">
+      <input id="hw-katedra" name="hw-loc" type="radio">
+      <input id="hw-cyrk" name="hw-loc" type="radio">
+      <input id="hw-maski" name="hw-loc" type="radio">
+      <input id="hw-samotnia" name="hw-loc" type="radio">
+      <input id="hw-forteca" name="hw-loc" type="radio">
+      <input id="hw-sad" name="hw-loc" type="radio">
+      <input id="hw-manufaktura" name="hw-loc" type="radio">
+      <input id="hw-arsenal" name="hw-loc" type="radio">
+      <input id="hw-szpital1" name="hw-loc" type="radio">
+      <input id="hw-szpital2" name="hw-loc" type="radio">
+      <input id="hw-apteka" name="hw-loc" type="radio">
+      <input id="hw-suszarnia" name="hw-loc" type="radio">
+      <input id="hw-aurelia" name="hw-loc" type="radio">
+      <input id="hw-helena" name="hw-loc" type="radio">
+      <input id="hw-marchetti" name="hw-loc" type="radio">
+      <input id="hw-brzask" name="hw-loc" type="radio">
+      <input id="hw-pawbar" name="hw-loc" type="radio">
+      <input id="hw-ossuary" name="hw-loc" type="radio">
+      <input id="hw-rynek" name="hw-loc" type="radio">
+      <input id="hw-smakosze" name="hw-loc" type="radio">
+      <input id="hw-targ" name="hw-loc" type="radio">
+      <input id="hw-sabine" name="hw-loc" type="radio">
+      <input id="hw-falcone" name="hw-loc" type="radio">
+      <input id="hw-kurogane" name="hw-loc" type="radio">
+      <input id="hw-park" name="hw-loc" type="radio">
+      <input id="hw-reyes" name="hw-loc" type="radio">
+
+      <div class="hw-map__stage" aria-label="Interaktywna mapa Heartwell">
+        <img class="hw-map__image" src="https://i.imgur.com/FHPUsh5.jpeg" alt="Mapa miasta Heartwell" draggable="false">
+
+        <label class="hw-map__marker m-palac" for="hw-palac" style="left:55%;top:44%"><span>Pałac</span></label>
+        <label class="hw-map__marker m-duma" for="hw-duma" style="left:48%;top:43%"><span>Sterowiec „Duma”</span></label>
+        <label class="hw-map__marker m-paw" for="hw-paw" style="left:46%;top:33%"><span>Klub Pawia</span></label>
+        <label class="hw-map__marker m-opera" for="hw-opera" style="left:51%;top:52%"><span>Opera Doriana</span></label>
+        <label class="hw-map__marker m-galeria" for="hw-galeria" style="left:56%;top:39%"><span>Galeria Harwarda</span></label>
+        <label class="hw-map__marker m-akademia" for="hw-akademia" style="left:44%;top:44%"><span>Akademia</span></label>
+        <label class="hw-map__marker m-ogrody" for="hw-ogrody" style="left:53%;top:33%"><span>Szklane Ogrody</span></label>
+
+        <label class="hw-map__marker m-katedra" for="hw-katedra" style="left:79%;top:60%"><span>Katedra św. Bazylego</span></label>
+        <label class="hw-map__marker m-cyrk" for="hw-cyrk" style="left:54%;top:57%"><span>Cyrk Zmysłów</span></label>
+        <label class="hw-map__marker m-maski" for="hw-maski" style="left:74%;top:62%"><span>Salon Masek</span></label>
+        <label class="hw-map__marker m-samotnia" for="hw-samotnia" style="left:76.7%;top:67.6%"><span>Samotnia</span></label>
+
+        <label class="hw-map__marker m-forteca" for="hw-forteca" style="left:19.2%;top:27%"><span>Forteca Javerta</span></label>
+        <label class="hw-map__marker m-sad" for="hw-sad" style="left:27%;top:18%"><span>Żelazny Sąd</span></label>
+        <label class="hw-map__marker m-manufaktura" for="hw-manufaktura" style="left:15%;top:33.5%"><span>Manufaktura Ashcroftów</span></label>
+        <label class="hw-map__marker m-arsenal" for="hw-arsenal" style="left:21.1%;top:32%"><span>Arsenał Ashcroftów</span></label>
+
+        <label class="hw-map__marker m-szpital1" for="hw-szpital1" style="left:16.5%;top:48.5%"><span>Szpital Główny w Heartwell</span></label>
+        <label class="hw-map__marker m-szpital2" for="hw-szpital2" style="left:38%;top:44%"><span>Zakład Psychiatryczny</span></label>
+        <label class="hw-map__marker m-apteka" for="hw-apteka" style="left:34%;top:43%"><span>Apteka pod Czarnym Makiem</span></label>
+        <label class="hw-map__marker m-suszarnia" for="hw-suszarnia" style="left:22%;top:51%"><span>Suszarnia</span></label>
+        <label class="hw-map__marker m-aurelia" for="hw-aurelia" style="left:27%;top:44%"><span>Salon Aurelii</span></label>
+
+        <label class="hw-map__marker m-helena" for="hw-helena" style="left:30%;top:59.8%"><span>Dom Heleny Corvus</span></label>
+        <label class="hw-map__marker m-marchetti" for="hw-marchetti" style="left:37%;top:54.3%"><span>Dom Handlowy Marchetti</span></label>
+        <label class="hw-map__marker m-brzask" for="hw-brzask" style="left:22.4%;top:57%"><span>Restauracja „Krwawy Brzask”</span></label>
+        <label class="hw-map__marker m-pawbar" for="hw-pawbar" style="left:21%;top:59%"><span>Bar „Czarny Paw”</span></label>
+        <label class="hw-map__marker m-ossuary" for="hw-ossuary" style="left:34.5%;top:68%"><span>Magazyn Braci Ossuary</span></label>
+        <label class="hw-map__marker m-rynek" for="hw-rynek" style="left:42%;top:60%"><span>Rynek Rozkoszy</span></label>
+        <label class="hw-map__marker m-smakosze" for="hw-smakosze" style="left:50%;top:59%"><span>Gildia Smakoszy</span></label>
+        <label class="hw-map__marker m-targ" for="hw-targ" style="left:40%;top:50%"><span>Targ Osobliwości</span></label>
+
+        <label class="hw-map__marker m-sabine" for="hw-sabine" style="left:44%;top:20%"><span>Dom Sabine Kessler</span></label>
+        <label class="hw-map__marker m-falcone" for="hw-falcone" style="left:71%;top:39%"><span>Dom Rodziny Falcone</span></label>
+        <label class="hw-map__marker m-kurogane" for="hw-kurogane" style="left:76%;top:25%"><span>Dom Rodziny Kurogane</span></label>
+        <label class="hw-map__marker m-park" for="hw-park" style="left:62%;top:22%"><span>Park Skalny</span></label>
+        <label class="hw-map__marker m-reyes" for="hw-reyes" style="left:59%;top:17.5%"><span>Dom Rodziny Reyes</span></label>
+      </div>
+
+      <div class="hw-map__details" aria-live="polite">
+        <div class="hw-map__detail d-palac"><strong>Korona</strong><h3>Pałac</h3><p>Siedziba Percivala Lysandera Ignatiusa Sinclaira.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-duma"><strong>Korona</strong><h3>Sterowiec „Duma”</h3><p>Statek powietrzny Percivala Lysandera Ignatiusa Sinclaira.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-paw"><strong>Korona</strong><h3>Klub Pawia</h3><p>Jedno z miejsc związanych z życiem wyższych warstw Heartwell.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-opera"><strong>Korona</strong><h3>Opera Doriana</h3><p>Miejsce przedstawień i życia towarzyskiego Korony.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-galeria"><strong>Korona</strong><h3>Galeria Harwarda</h3><p>Galeria sztuki w Koronie.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-akademia"><strong>Korona</strong><h3>Akademia</h3><p>Elitarna instytucja, w której Percival ukończył Wydział Sztuk Magicznych z najwyższymi honorami.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+        <div class="hw-map__detail d-ogrody"><strong>Korona</strong><h3>Szklane Ogrody</h3><p>Reprezentacyjna część Korony.</p><a href="./?article=korona.html">Otwórz wpis „Korona” ↗</a></div>
+
+        <div class="hw-map__detail d-katedra"><strong>Erozja</strong><h3>Katedra św. Bazylego</h3><p>Centrum działalności Kościoła Jasnego i jego sieci konfesjonałów oraz archiwów.</p><a href="./?article=erozja.html">Otwórz wpis „Erozja” ↗</a></div>
+        <div class="hw-map__detail d-cyrk"><strong>Erozja</strong><h3>Cyrk Zmysłów</h3><p>Miejsce związane z teatrami, operami i salonami przyjemności.</p><a href="./?article=erozja.html">Otwórz wpis „Erozja” ↗</a></div>
+        <div class="hw-map__detail d-maski"><strong>Erozja</strong><h3>Salon Masek</h3><p>Salon doznań cielesnych.</p><a href="./?article=erozja.html">Otwórz wpis „Erozja” ↗</a></div>
+        <div class="hw-map__detail d-samotnia"><strong>Erozja</strong><h3>Samotnia</h3><p>Zamek Zazdrości.</p><a href="./?article=erozja.html">Otwórz wpis „Erozja” ↗</a></div>
+
+        <div class="hw-map__detail d-forteca"><strong>Wisielcze Wzgórze</strong><h3>Forteca Javerta</h3><p>Masywna forteca, w której Javert utrzymuje swoje biuro i archiwa.</p><a href="./?article=wisielcze-wzgorze.html">Otwórz wpis „Wisielcze Wzgórze” ↗</a></div>
+        <div class="hw-map__detail d-sad"><strong>Wisielcze Wzgórze</strong><h3>Żelazny Sąd</h3><p>Jeden z najważniejszych symboli władzy Javerta i jego rygorystycznego systemu sprawiedliwości.</p><a href="./?article=wisielcze-wzgorze.html">Otwórz wpis „Wisielcze Wzgórze” ↗</a></div>
+        <div class="hw-map__detail d-manufaktura"><strong>Wisielcze Wzgórze</strong><h3>Manufaktura Ashcroftów</h3><p>Rodzinna fabryka broni.</p><a href="./?article=wisielcze-wzgorze.html">Otwórz wpis „Wisielcze Wzgórze” ↗</a></div>
+        <div class="hw-map__detail d-arsenal"><strong>Wisielcze Wzgórze</strong><h3>Arsenał Ashcroftów</h3><p>Rodzinna fabryka broni działająca pod formalną władzą Javerta.</p><a href="./?article=wisielcze-wzgorze.html">Otwórz wpis „Wisielcze Wzgórze” ↗</a></div>
+
+        <div class="hw-map__detail d-szpital1"><strong>Senatorium</strong><h3>Szpital Główny w Heartwell</h3><p>Jedna z instytucji medycznych Senatorium.</p><a href="./?article=senatorium.html">Otwórz wpis „Senatorium” ↗</a></div>
+        <div class="hw-map__detail d-szpital2"><strong>Senatorium</strong><h3>Zakład Psychiatryczny w Heartwell</h3><p>Jedna z instytucji medycznych Senatorium.</p><a href="./?article=senatorium.html">Otwórz wpis „Senatorium” ↗</a></div>
+        <div class="hw-map__detail d-apteka"><strong>Senatorium</strong><h3>Apteka pod Czarnym Makiem</h3><p>Apteka działająca w Senatorium.</p><a href="./?article=senatorium.html">Otwórz wpis „Senatorium” ↗</a></div>
+        <div class="hw-map__detail d-suszarnia"><strong>Senatorium</strong><h3>Suszarnia</h3><p>Główne laboratorium i magazyn Kartelu Drowse.</p><a href="./?article=senatorium.html">Otwórz wpis „Senatorium” ↗</a></div>
+        <div class="hw-map__detail d-aurelia"><strong>Senatorium</strong><h3>Salon Aurelii</h3><p>Siedziba Domu Snów.</p><a href="./?article=senatorium.html">Otwórz wpis „Senatorium” ↗</a></div>
+
+        <div class="hw-map__detail d-helena"><strong>Apetoria</strong><h3>Dom Heleny Corvus</h3><p>Dom Heleny Corvus.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-marchetti"><strong>Apetoria</strong><h3>Dom Handlowy Marchetti</h3><p>Dom Handlowy Marchetti.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-brzask"><strong>Apetoria</strong><h3>Restauracja „Krwawy Brzask”</h3><p>Restauracja „Krwawy Brzask”.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-pawbar"><strong>Apetoria</strong><h3>Bar „Czarny Paw”</h3><p>Bar „Czarny Paw”.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-ossuary"><strong>Apetoria</strong><h3>Magazyn Braci Ossuary</h3><p>Magazyn Braci Ossuary.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-rynek"><strong>Apetoria</strong><h3>Rynek Rozkoszy</h3><p>Rynek Rozkoszy.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-smakosze"><strong>Apetoria</strong><h3>Gildia Smakoszy</h3><p>Gildia Smakoszy.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+        <div class="hw-map__detail d-targ"><strong>Apetoria</strong><h3>Targ Osobliwości</h3><p>Targ Osobliwości.</p><a href="./?article=apetoria.html">Otwórz wpis „Apetoria” ↗</a></div>
+
+        <div class="hw-map__detail d-sabine"><strong>Zabraniec</strong><h3>Dom Sabine Kessler</h3><p>Dom Sabine Kessler.</p><a href="./?article=zabraniec.html">Otwórz wpis „Zabraniec” ↗</a></div>
+        <div class="hw-map__detail d-falcone"><strong>Zabraniec</strong><h3>Dom Rodziny Falcone</h3><p>Dom Rodziny Falcone.</p><a href="./?article=zabraniec.html">Otwórz wpis „Zabraniec” ↗</a></div>
+        <div class="hw-map__detail d-kurogane"><strong>Zabraniec</strong><h3>Dom Rodziny Kurogane</h3><p>Dom Rodziny Kurogane.</p><a href="./?article=zabraniec.html">Otwórz wpis „Zabraniec” ↗</a></div>
+        <div class="hw-map__detail d-park"><strong>Zabraniec</strong><h3>Park Skalny</h3><p>Park w Zabrańcu.</p><a href="./?article=zabraniec.html">Otwórz wpis „Zabraniec” ↗</a></div>
+        <div class="hw-map__detail d-reyes"><strong>Zabraniec</strong><h3>Dom Rodziny Reyes</h3><p>Dom Rodziny Reyes.</p><a href="./?article=zabraniec.html">Otwórz wpis „Zabraniec” ↗</a></div>
+      </div>
+    </div>
+
+    <p class="hw-map__hint">Kliknięcie punktu zmienia wyłącznie zaznaczenie i panel po prawej — pozycja strony pozostaje bez zmian. Źródło punktów starej mapy: dane były zapisane bezpośrednio w znacznikach HTML mapy jako współrzędne procentowe, nazwa, dzielnica, opis i nazwa powiązanego artykułu. Ta wersja zachowuje te dane i współrzędne; interakcję realizuje CSS, więc nowa notatka nie wymaga modyfikowania globalnego <code>app.js</code>.</p>
+
+    <aside class="aside aside--dm">
+      <h4 class="aside__title">Notatka techniczna</h4>
+      <p>Stara mapa korzystała z obrazu <code>https://i.imgur.com/FHPUsh5.jpeg</code>, a punkty były ręcznie wpisanymi elementami <code>&lt;button&gt;</code> z atrybutami <code>data-location</code>, <code>data-title</code>, <code>data-type</code>, <code>data-description</code> i <code>data-article</code>. Skrypt starego kompendium odczytywał te atrybuty i budował panel szczegółów po kliknięciu. Nowa wersja pozostawia źródło mapy i wszystkie punkty, ale nie wymaga starego skryptu ani starego CSS.</p>
+    </aside>
+  </div>
+</article>
