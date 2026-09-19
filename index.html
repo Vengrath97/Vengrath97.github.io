@@ -1,136 +1,33 @@
 <!doctype html>
-<html lang="pl" data-root="./">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#F1ECE0">
-<meta name="description" content="Vengrath — Mistrz Podziemi, twórca kampanii i budowniczy światów. Kampanie, projekty, blog i narzędzia RPG.">
-<meta property="og:title" content="Vengrath">
-<meta property="og:description" content="Mistrz Podziemi, twórca kampanii i budowniczy światów.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vengrath97.github.io/">
-<link rel="canonical" href="https://vengrath97.github.io/">
-<title>Vengrath — dziennik Mistrza Podziemi</title>
-<link rel="stylesheet" href="css/main.css">
+<title>Diablo — Shattered Codex</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-header">
-  <a class="wordmark" href="./">Vengrath<span class="wordmark__mark">.</span></a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-  <nav id="site-nav" class="site-nav">
-    <a class="site-nav__link" href="pages/Campaigns/">Kampanie</a>
-    <a class="site-nav__link" href="pages/Projects/">Projekty</a>
-    <a class="site-nav__link" href="pages/Blog/">Blog</a>
-    <a class="site-nav__link" href="pages/AboutMe/">O mnie</a>
-    <a class="site-nav__link" href="pages/charactermancer/">Charactermancer</a>
-  </nav>
-  <div class="header-tools"></div>
+<div class="app">
+<header>
+  <div class="brand"><div class="sigil"><span>✦</span></div><div class="logo">Diablo<span>Shattered Codex</span></div></div><div class="tagline">A visual index of the dark archive</div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search…" aria-label="Search">
+    <button id="shuffle" type="button">Reroll the shards</button>
+  </div>
 </header>
-
-<main id="main">
-
-  <section class="hero">
-    <div class="hero__grid">
-      <div>
-        <span class="hero__mark">Dziennik prowadzenia · aktualizowany co tydzień</span>
-        <h1>Wasz wieczny <em>bard.</em></h1>
-        <p class="hero__lede">Mistrz Podziemi, twórca kampanii i budowniczy światów. Ten katalog zbiera rzeczy, które prowadzę, piszę i rozwijam — od stołów, przy których siedzę co tydzień, po światy, które istnieją na razie tylko w notatkach.</p>
-      </div>
-      <div class="hero__aside">
-        <div class="compass" aria-hidden="true"><span></span></div>
-        <p class="hero__stat-line">
-          <span>4 prowadzone stoły</span>
-          <span>5 światów w budowie</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="index-head">
-    <div class="section__head">
-      <div>
-        <span class="marker">Spis treści</span>
-        <h2 id="index-head">Cztery kierunki, <em>jeden warsztat.</em></h2>
-      </div>
-    </div>
-    <nav class="logbook" aria-label="Główne działy strony">
-      <a class="log-entry" href="pages/Campaigns/">
-        <span class="log-entry__tag">01 · na żywo</span>
-        <span class="log-entry__body">
-          <h3>Kampanie</h3>
-          <p>To, co dzieje się przy stole — stoły, które prowadzę co tydzień, dzień po dniu.</p>
-        </span>
-        <span class="log-entry__arrow">↗</span>
-      </a>
-      <a class="log-entry" href="pages/Projects/">
-        <span class="log-entry__tag">02 · w budowie</span>
-        <span class="log-entry__body">
-          <h3>Projekty</h3>
-          <p>Autorskie światy, kampanie i materiały do RPG — od pierwszych notatek po rzeczy gotowe do gry.</p>
-        </span>
-        <span class="log-entry__arrow">↗</span>
-      </a>
-      <a class="log-entry" href="pages/Blog/">
-        <span class="log-entry__tag">03 · dziennik</span>
-        <span class="log-entry__body">
-          <h3>Blog</h3>
-          <p>Notatki z sesji, z przygotowań i z budowy tej strony — pisane na bieżąco.</p>
-        </span>
-        <span class="log-entry__arrow">↗</span>
-      </a>
-      <a class="log-entry" href="pages/AboutMe/">
-        <span class="log-entry__tag">04 · zaplecze</span>
-        <span class="log-entry__body">
-          <h3>O mnie</h3>
-          <p>Kim jestem poza ekranem Mistrza Podziemi, i dlaczego ta strona w ogóle istnieje.</p>
-        </span>
-        <span class="log-entry__arrow">↗</span>
-      </a>
-    </nav>
-  </section>
-
-  <section class="tool-band">
-    <div class="wrap">
-      <div>
-        <span class="marker">Narzędzie</span>
-        <h2>Charactermancer <em>Heartwell.</em></h2>
-        <p class="lede">Pełny kreator postaci jako osobne narzędzie — wybierz rasę, klasę i pochodzenie, a Charactermancer złoży z tego gotową kartę do gry.</p>
-        <div class="tool-band__actions">
-          <a class="btn btn--solid" href="pages/charactermancer/">Otwórz Charactermancer</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+<nav id="filters" class="filters" aria-label="Categories">
+  <button class="filter active" data-cat="All">All</button>
+  <button class="filter" data-cat="Projects">Projects</button>
+  <button class="filter" data-cat="People">People</button>
+  <button class="filter" data-cat="Ideas">Ideas</button>
+  <button class="filter" data-cat="Media">Media</button>
+  <button class="filter" data-cat="Reference">Reference</button>
+  <button class="filter" data-cat="Archive">Archive</button>
+</nav>
+<main id="viewport" class="viewport">
+  <div id="canvas" class="canvas"></div>
 </main>
-
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <div class="site-footer__brand">
-      <span class="wordmark">Vengrath<span class="wordmark__mark">.</span></span>
-      <p class="site-footer__tag">Świat jeszcze się pisze.</p>
-    </div>
-    <div class="site-footer__cols">
-      <div class="site-footer__col">
-        <h5>Strona</h5>
-        <a href="pages/Campaigns/">Kampanie</a>
-        <a href="pages/Projects/">Projekty</a>
-        <a href="pages/Blog/">Blog</a>
-        <a href="pages/AboutMe/">O mnie</a>
-      </div>
-      <div class="site-footer__col">
-        <h5>Narzędzia</h5>
-        <a href="pages/charactermancer/">Charactermancer</a>
-        <a href="pages/AboutMe/illustrations/">Ilustracje</a>
-      </div>
-    </div>
-  </div>
-  <div class="site-footer__base">
-    <span>Vengrath</span>
-    <span>vengrath97.github.io</span>
-  </div>
-</footer>
-
-<script src="js/site.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>

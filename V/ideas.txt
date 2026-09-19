@@ -1,0 +1,4 @@
+Ideas
+Ideas
+graphics/ideas.svg
+subpages/ideas.html
