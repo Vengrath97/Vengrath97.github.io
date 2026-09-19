@@ -8,25 +8,22 @@
 </head>
 <body>
 <div class="app">
-<header>
-  <div class="brand"><div class="sigil"><span>✦</span></div><div class="logo">Diablo<span>Shattered Codex</span></div></div><div class="tagline">A visual index of the dark archive</div>
+<header class="topbar">
+  <div class="brand">
+    <div class="sigil">✦</div>
+    <div>
+      <div class="logo">KSIĘGA MISTRZA PODZIEMI</div>
+      <div class="tagline">Kronika kampanii · archiwum · warsztat Mistrza Gry</div>
+    </div>
+  </div>
   <div class="controls">
-    <input id="search" type="search" placeholder="Search…" aria-label="Search">
-    <button id="shuffle" type="button">Reroll the shards</button>
+    <input id="search" type="search" placeholder="Szukaj…" aria-label="Szukaj">
+    <button id="shuffle" type="button">Przetasuj</button>
   </div>
 </header>
-<nav id="filters" class="filters" aria-label="Categories">
-  <button class="filter active" data-cat="All">All</button>
-  <button class="filter" data-cat="Projects">Projects</button>
-  <button class="filter" data-cat="People">People</button>
-  <button class="filter" data-cat="Ideas">Ideas</button>
-  <button class="filter" data-cat="Media">Media</button>
-  <button class="filter" data-cat="Reference">Reference</button>
-  <button class="filter" data-cat="Archive">Archive</button>
-</nav>
-<main id="viewport" class="viewport">
-  <div id="canvas" class="canvas"></div>
-</main>
+<nav id="filters" class="filters" aria-label="Kategorie"></nav>
+<main id="viewport" class="viewport"><div id="board" class="board"></div></main>
+<footer class="footer">PRZECIĄGNIJ · KÓŁKO MYSZY · PRZESUŃ PANORAMĘ <span>kliknij fragment, aby przejść dalej</span></footer>
 </div>
 <script src="app.js"></script>
 </body>
