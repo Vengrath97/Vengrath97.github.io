@@ -1,4 +1,4 @@
 Rime of the Frostmaiden
 Kampania
-graphics/media.jpg
+graphics/rime-of-the-frostmaiden.jpg
 subpages/rime-of-the-frostmaiden.html
