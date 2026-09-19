@@ -1,4 +1,0 @@
-Mock_60
-Mock60
-graphics/Default.jpg
-./index.html
