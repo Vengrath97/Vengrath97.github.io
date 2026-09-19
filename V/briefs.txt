@@ -1,0 +1,4 @@
+Briefs
+Reference
+graphics/briefs.svg
+subpages/briefs.html

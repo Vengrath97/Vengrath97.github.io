@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://vengrath97.github.io/sitemap.xml

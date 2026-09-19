@@ -1,0 +1,4 @@
+Workshop
+Ideas
+graphics/workshop.svg
+subpages/workshop.html

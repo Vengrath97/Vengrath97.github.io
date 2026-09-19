@@ -1,0 +1,4 @@
+Calendar
+Projects
+graphics/calendar.svg
+subpages/calendar.html
