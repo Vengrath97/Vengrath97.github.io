@@ -1,4 +1,4 @@
 Samotnie przeciw Jedności
 Kampania
-graphics/people-directory.jpg
+graphics/samotnie-przeciw-jednosci.jpg
 subpages/samotnie-przeciw-jednosci.html

@@ -18,7 +18,22 @@ board.style.width=worldW+"px";board.style.height=H+"px";board.innerHTML="";if(!c
 const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",worldW);svg.setAttribute("height",H);svg.setAttribute("viewBox",`0 0 ${worldW} ${H}`);svg.classList.add("shatter");const defs=document.createElementNS("http://www.w3.org/2000/svg","defs");svg.appendChild(defs);
 sites.forEach((s,i)=>{const raw=cell(s,sites,{x0:0,y0:0,x1:worldW,y1:H});if(raw.length<3)return;const poly=shape(raw,i,worldW,H);const cp=document.createElementNS("http://www.w3.org/2000/svg","clipPath"),id="clip"+i;cp.id=id;const cpPath=document.createElementNS("http://www.w3.org/2000/svg","path");cpPath.setAttribute("d",path(poly));cp.appendChild(cpPath);defs.appendChild(cp);const a=document.createElementNS("http://www.w3.org/2000/svg","a");a.classList.add("shard");a.setAttribute("href",s.data.link);a.setAttribute("tabindex","0");a.setAttribute("aria-label",s.data.title);const xs=poly.map(p=>p.x),ys=poly.map(p=>p.y),minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);const im=document.createElementNS("http://www.w3.org/2000/svg","image");im.setAttribute("x",minX);im.setAttribute("y",minY);im.setAttribute("width",maxX-minX);im.setAttribute("height",maxY-minY);im.setAttribute("preserveAspectRatio","xMidYMid slice");im.setAttribute("clip-path",`url(#${id})`);im.dataset.src=s.data.graphic;im.classList.add("shard-image");a.appendChild(im);const tint=document.createElementNS("http://www.w3.org/2000/svg","path");tint.setAttribute("d",path(poly));tint.classList.add("shard-tint");a.appendChild(tint);const g=document.createElementNS("http://www.w3.org/2000/svg","g");g.setAttribute("clip-path",`url(#${id})`);addText(g,s,poly);a.appendChild(g);svg.appendChild(a)});board.appendChild(svg);lazyLoadImages()}
 function lazyLoadImages(){const imgs=board.querySelectorAll("image[data-src]");if(!imgs.length)return;const loadImage=im=>{const src=im.dataset.src;if(!src)return;im.setAttribute("href",src);delete im.dataset.src};if(!("IntersectionObserver" in window)){imgs.forEach(loadImage);return}const io=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){loadImage(entry.target);io.unobserve(entry.target)}}},{root:viewport,rootMargin:"500px 900px"});imgs.forEach(im=>io.observe(im))}
-async function load(){const r=await fetch("V/cards.json");if(!r.ok)throw Error("V/cards.json");records=await r.json();shuffled=shuffle([...records]);build()}
+async function load(){
+  const manifest=await fetch("V/index.json",{cache:"no-cache"});
+  if(!manifest.ok)throw Error("V/index.json");
+  const files=await manifest.json();
+  const parsed=await Promise.all(files.map(async file=>{
+    const r=await fetch("V/"+encodeURIComponent(file),{cache:"no-cache"});
+    if(!r.ok)throw Error("V/"+file);
+    const lines=(await r.text()).replace(/^\\uFEFF/,"").split(/\\r?\\n/).map(x=>x.trim());
+    if(lines.length<4)throw Error("Nieprawidłowy plik: "+file);
+    const [title,tag,graphic,link]=lines;
+    return {title,tag,graphic,link};
+  }));
+  records=parsed;
+  shuffled=shuffle([...records]);
+  build();
+}
 function setup(){filters.innerHTML="";FILTERS.forEach(([label,tag],i)=>{const b=document.createElement("button");b.className="filter"+(i===0?" active":"");b.dataset.tag=tag;b.textContent=label;filters.appendChild(b)});filters.onclick=e=>{const b=e.target.closest(".filter");if(!b)return;activeTag=b.dataset.tag;filters.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));build()};search.addEventListener("input",build);shuffleBtn.addEventListener("click",()=>{shuffled=shuffle([...records]);build()})}
 viewport.addEventListener("wheel",e=>{const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(d){e.preventDefault();viewport.scrollLeft+=d*2.5}},{passive:false});
 viewport.addEventListener("pointerdown",e=>{if(e.button!==0)return;cancelAnimationFrame(momentum);drag={active:true,startX:e.clientX,lastX:e.clientX,lastTime:performance.now(),velocity:0,moved:false};viewport.style.cursor="grabbing";viewport.setPointerCapture(e.pointerId)});

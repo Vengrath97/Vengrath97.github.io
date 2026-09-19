@@ -1,4 +1,4 @@
 Shadow of the Sword Coast
 Kampania
-graphics/documents.jpg
+graphics/shadow-of-the-sword-coast.jpg
 subpages/shadow-of-the-sword-coast.html

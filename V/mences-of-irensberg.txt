@@ -1,4 +1,4 @@
 Mences of Irensberg
 Kampania
-graphics/archive.jpg
+graphics/mences-of-irensberg.jpg
 subpages/mences-of-irensberg.html
