@@ -19,3 +19,5 @@ python3 -m http.server
 Następnie otwórz `http://localhost:8000/`.
 
 Strona jest przygotowana do GitHub Pages i używa ścieżek względnych.
+
+Obrazy w shardach zachowują oryginalne proporcje (`preserveAspectRatio: xMidYMid slice`): wypełniają cały kształt kafla, a nadmiar obrazu jest przycinany po bokach albo od góry/dołu zależnie od proporcji.
