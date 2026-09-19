@@ -1,4 +1,4 @@
 Książęta Heartwell
 Kampania
-graphics/ksiazeta-heartwell.svg
+graphics/roadmap.jpg
 subpages/ksiazeta-heartwell.html

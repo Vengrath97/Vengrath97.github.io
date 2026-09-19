@@ -1,4 +1,4 @@
 Echtra midst the Sidhe
 Kampania
-graphics/echtra-midst-the-sidhe.svg
+graphics/visuals.jpg
 subpages/echtra-midst-the-sidhe.html

@@ -1,4 +1,4 @@
 Dungeons of Drakkenheim
 Kampania
-graphics/dungeons-of-drakkenheim.svg
+graphics/research.jpg
 subpages/dungeons-of-drakkenheim.html

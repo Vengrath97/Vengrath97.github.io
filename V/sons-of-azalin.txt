@@ -1,4 +1,4 @@
 Sons of Azalin
 Kampania
-graphics/sons-of-azalin.svg
+graphics/guidelines.jpg
 subpages/sons-of-azalin.html

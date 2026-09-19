@@ -1,31 +1,37 @@
 # Vengrath
 
-Panorama kampanii i materiałów Mistrza Gry.
+Statyczna strona GitHub Pages w grafitowo-szarej stylistyce.
 
-## Struktura
+## Wersja zoptymalizowana
 
-- `index.html` — strona główna
-- `styles.css` — grafitowo-szary styl, odstępy między shardami i typografia
-- `app.js` — generowanie nieregularnej panoramy, filtry, wyszukiwanie i nawigacja
-- `V/` — dane kafli; każdy plik ma 4 linie: tytuł, tag, grafika, link
-- `graphics/` — grafiki kafli oraz logo MG
+- karta danych jest ładowana jednym requestem z `V/cards.json` zamiast wykonywania osobnego requestu HTTP dla każdego `V/*.txt`;
+- pliki `V/*.txt` pozostają jako wygodny format źródłowy/edycyjny;
+- grafiki kart zostały przekonwertowane z SVG do JPG;
+- obrazy kart są ładowane leniwie — przeglądarka pobiera głównie grafiki znajdujące się w pobliżu aktualnego widoku panoramy;
+- zachowane jest `xMidYMid slice`, więc każda grafika zachowuje proporcje i jest przycinana tylko wtedy, gdy jej proporcje nie pasują do sharda;
+- logo MG zostało zmniejszone do rozsądnego rozmiaru webowego.
 
-## Uruchomienie lokalne
+## Dane kart
+
+Każdy plik w `V/` ma cztery linie:
+
+1. Tytuł
+2. Tag
+3. Ścieżka grafiki
+4. Link docelowy
+
+`V/cards.json` jest zoptymalizowanym manifestem używanym przez stronę. Jeśli zmienisz pliki `V/*.txt`, zaktualizuj również `cards.json` przed publikacją.
+
+## Mock-cardy
+
+Projekt zawiera `Mock_01`–`Mock_60`. Wszystkie korzystają ze wspólnej grafiki `graphics/Default.jpg` i prowadzą do `./index.html`.
+
+## Lokalnie
+
+Uruchom przez serwer HTTP, np.:
 
 ```bash
 python3 -m http.server
 ```
 
 Następnie otwórz `http://localhost:8000/`.
-
-Strona jest przygotowana do GitHub Pages i używa ścieżek względnych.
-
-Obrazy w shardach zachowują oryginalne proporcje (`preserveAspectRatio: xMidYMid slice`): wypełniają cały kształt kafla, a nadmiar obrazu jest przycinany po bokach albo od góry/dołu zależnie od proporcji.
-
-## Mock-karty
-
-Dodano 60 kart testowych `Mock_01`–`Mock_60`. Każda ma format:
-- nazwa: `Mock_XX`
-- zawartość/tag: `MockXX`
-- grafika: wspólna `graphics/Default.svg`
-- link docelowy: `./index.html`

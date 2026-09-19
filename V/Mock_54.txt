@@ -1,4 +1,4 @@
 Mock_54
 Mock54
-graphics/Default.svg
+graphics/Default.jpg
 ./index.html

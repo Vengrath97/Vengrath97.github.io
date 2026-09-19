@@ -1,4 +1,4 @@
 Sands of Doom
 Kampania
-graphics/sands-of-doom.svg
+graphics/strategy.jpg
 subpages/sands-of-doom.html

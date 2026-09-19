@@ -1,4 +1,4 @@
 Tomb of Annihilation
 Kampania
-graphics/tomb-of-annihilation.svg
+graphics/assets.jpg
 subpages/tomb-of-annihilation.html

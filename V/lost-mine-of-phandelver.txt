@@ -1,4 +1,4 @@
 Lost Mine of Phandelver
 Kampania
-graphics/lost-mine-of-phandelver.svg
+graphics/bookmarks.jpg
 subpages/lost-mine-of-phandelver.html

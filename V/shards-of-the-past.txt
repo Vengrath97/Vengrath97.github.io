@@ -1,4 +1,4 @@
 Shards of the Past
 Archiwum
-graphics/shards-of-the-past.svg
+graphics/history.jpg
 subpages/shards-of-the-past.html

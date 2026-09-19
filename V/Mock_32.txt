@@ -1,4 +1,4 @@
 Mock_32
 Mock32
-graphics/Default.svg
+graphics/Default.jpg
 ./index.html

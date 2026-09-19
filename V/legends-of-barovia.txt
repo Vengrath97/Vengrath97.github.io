@@ -1,4 +1,4 @@
 Legends of Barovia
 Kampania
-graphics/legends-of-barovia.svg
+graphics/archive-notes.jpg
 subpages/legends-of-barovia.html

@@ -1,4 +1,4 @@
 Odyssey of the Dragonlords
 Kampania
-graphics/odyssey-of-the-dragonlords.svg
+graphics/workshop.jpg
 subpages/odyssey-of-the-dragonlords.html
