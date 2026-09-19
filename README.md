@@ -48,3 +48,10 @@ Pliki `V/*.txt` są źródłem prawdy. Każdy plik ma dokładnie 4 linie:
 `app.js` ładuje listę plików z `V/index.json`, a następnie pobiera pliki TXT równolegle. Zmiana linku lub grafiki w konkretnym `V/*.txt` jest więc od razu używana przez stronę. `V/cards.json` nie jest już używany, aby nie pozostawał nieaktualnym kopią danych.
 
 Grafiki kart są JPG i są ładowane leniwie. Dla lokalnego testu użyj `python3 -m http.server`.
+
+
+## GitHub Pages
+
+Wersja jest przygotowana pod statyczny hosting GitHub Pages. Strona nie próbuje odczytywać listingu katalogu `V/` i nie wymaga lokalnego serwera HTTP. Lista plików TXT jest zawarta w `app.js`, a tytuł, kategorię, grafikę i link strona pobiera bezpośrednio z `V/*.txt`.
+
+Możesz podmieniać grafiki oraz linki w plikach `V/*.txt` i po wrzuceniu zmian na GitHub Pages zostaną użyte przez stronę.
