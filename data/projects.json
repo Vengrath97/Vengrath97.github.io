@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Echtra midst the Sidhe",
+    "type": "Kampania autorska",
+    "system": "D&D 5e",
+    "status": "IN_DEVELOPMENT",
+    "legacy": false,
+    "url": "echtra-midst-the-sidhe/",
+    "image": "echtra-midst-the-sidhe.webp",
+    "excerpt": "Celtycko-inspirowana heroic fantasy o roku, w którym Dullahan zapowiedział nadejście Dzikiego Gonu."
+  },
+  {
+    "title": "Książęta Heartwell",
+    "type": "Kampania autorska",
+    "system": "D&D 5e",
+    "status": "PREPARATION",
+    "legacy": false,
+    "url": "ksiazeta-heartwell/",
+    "image": "",
+    "excerpt": "Gotycki horror w industrialnym mieście inspirowanym Dishonored — z ropą i dieslem zamiast tranu."
+  },
+  {
+    "title": "Samotnie przeciw Jedności",
+    "type": "Kampania autorska",
+    "system": "Call of Cthulhu 7e",
+    "status": "SOMEDAY",
+    "legacy": false,
+    "url": "samotnie-przeciw-jednosci/",
+    "image": "",
+    "excerpt": "Lovecraftiańskie śledztwo z przewagą pulp-style adventure, skupione wokół Ubbo-Sathli i tajemnicy Wyspy Wielkanocnej."
+  },
+  {
+    "title": "Widma Szarolasu",
+    "type": "Zakończona kampania",
+    "system": "D&D 5e",
+    "status": "ARCHIVE",
+    "legacy": true,
+    "url": "widma-szarolasu/",
+    "image": "widma-szarolasu.webp",
+    "excerpt": "Sandboxowa kampania o baronii nawiedzanej przez smoczą przeszłość, klątwy i polityczną zdradę."
+  },
+  {
+    "title": "Odłamki Przeszłości",
+    "type": "Zakończona kampania",
+    "system": "D&D 5e",
+    "status": "ARCHIVE",
+    "legacy": true,
+    "url": "odlamki-przeszlosci/",
+    "image": "",
+    "excerpt": "Poszukiwanie odłamków upadłej cywilizacji i wyścig z arcymagiem, który chce wykorzystać jej dziedzictwo."
+  }
+]

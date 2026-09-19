@@ -1,0 +1,76 @@
+/*
+  TYPOGRAPHY
+  Type roles built on the tokens in tokens.css.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+h1, .h1{
+  font-size: var(--text-3xl);
+  letter-spacing: -0.01em;
+}
+h2, .h2{
+  font-size: var(--text-2xl);
+  letter-spacing: -0.008em;
+}
+h3, .h3{
+  font-size: var(--text-xl);
+}
+h4, .h4{
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+/* Italic serif used as a quiet emphasis for a single clause, not a whole
+   headline treatment applied to one word — reserved for genuine asides. */
+em, .accent-word{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--rust);
+}
+
+.lede{
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.label{
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  letter-spacing: 0.01em;
+}
+
+/* A "marker" is the small glyph + word used to open a section, styled like
+   a legend entry on a hand-drawn map rather than a tracked-out eyebrow. */
+.marker{
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--rust);
+}
+.marker::before{
+  content: "";
+  width: 7px; height: 7px;
+  border: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  flex: none;
+}
+
+.prose{
+  max-width: 68ch;
+  font-size: var(--text-md);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.prose > * + *{ margin-top: var(--space-4); }
+.prose h2{ margin-top: var(--space-8); margin-bottom: var(--space-3); color: var(--ink); }
+.prose h2:first-child{ margin-top: 0; }
+.prose a{ color: var(--rust); text-underline-offset: 3px; text-decoration: underline; text-decoration-color: var(--brass-soft); }
+.prose a:hover{ text-decoration-color: currentColor; }
+.prose code{ font-family: var(--font-mono); font-size: .85em; background: var(--paper-deep); padding: .1em .35em; border-radius: 2px; }

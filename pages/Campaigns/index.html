@@ -1,11 +1,76 @@
 <!doctype html>
-<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070806"><meta name="description" content="Aktywne kampanie Vengratha."><title>Kampanie // Vengrath</title><link rel="stylesheet" href="../../css/main.css"></head>
-<body class="terminal-site"><header class="terminal-header"><a class="terminal-brand" href="../../">VENGRATH <span>// ARCHIVE</span></a><nav class="terminal-nav" aria-label="Główna nawigacja"><a href="./" aria-current="page">01 KAMPANIE</a><a href="../Projects/">02 PROJEKTY</a><a href="../Blog/">03 DZIENNIK</a><a href="../AboutMe/">04 O MNIE</a><a href="../charactermancer/">CM NARZĘDZIA</a></nav></header>
-<main class="archive-page"><header class="archive-head"><div><p class="terminal-kicker">[ 01 / LIVE TABLES ]</p><h1>AKTYWNE<br><span>KAMPANIE.</span></h1></div><p>Historie, które toczą się teraz. Każda pozycja jest osobnym stołem, własnym rytmem i światem czekającym na kolejny rzut kością.</p></header>
-<section class="archive-list" aria-label="Lista kampanii">
-<article class="archive-entry" data-code="COS"><span class="archive-index">01</span><div><h2>Curse of Strahd — Legendy Barovii</h2><span class="entry-state">● ACTIVE</span></div><p class="archive-meta">PONIEDZIAŁEK<br>D&amp;D 5e · WOTC / PYRAM KING</p><span class="archive-arrow">↗</span></article>
-<article class="archive-entry" data-code="SOD"><span class="archive-index">02</span><div><h2>Sands of Doom</h2><span class="entry-state">● ACTIVE</span></div><p class="archive-meta">WTOREK<br>D&amp;D 5e · MRRHEXX GAMES</p><span class="archive-arrow">↗</span></article>
-<article class="archive-entry" data-code="EMTS"><span class="archive-index">03</span><div><h2>Echtra midst the Sidhe</h2><span class="entry-state">● ACTIVE</span></div><p class="archive-meta">ŚRODA<br>D&amp;D 5e · VENGRATH</p><span class="archive-arrow">↗</span></article>
-<article class="archive-entry" data-code="WS"><span class="archive-index">04</span><div><h2>Widma Szarolasu</h2><span class="entry-state">● ACTIVE</span></div><p class="archive-meta">CZWARTEK<br>D&amp;D 5e · VENGRATH</p><span class="archive-arrow">↗</span></article>
-</section><p class="terminal-prose"><strong>PROTOKÓŁ STOŁU:</strong> kampanie są żywymi archiwami. Ten indeks wskazuje to, co jest prowadzone; materiały i światy znajdziesz w katalogu projektów.</p></main>
-<footer class="terminal-footer"><span>VENGRATH // 01</span><span>LIVE TABLES</span><a href="../../">← ARCHIWUM</a></footer><script src="../../js/terminal.js"></script></body></html>
+<html lang="pl" data-root="../../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#F1ECE0">
+<meta name="description" content="Stoły, które Vengrath prowadzi co tydzień — dzień po dniu.">
+<link rel="canonical" href="https://vengrath97.github.io/pages/Campaigns/">
+<title>Kampanie — Vengrath</title>
+<link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="wordmark" href="../../">Vengrath<span class="wordmark__mark">.</span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav id="site-nav" class="site-nav">
+    <a class="site-nav__link" href="../Campaigns/" aria-current="page">Kampanie</a>
+    <a class="site-nav__link" href="../Projects/">Projekty</a>
+    <a class="site-nav__link" href="../Blog/">Blog</a>
+    <a class="site-nav__link" href="../AboutMe/">O mnie</a>
+    <a class="site-nav__link" href="../charactermancer/">Charactermancer</a>
+  </nav>
+  <div class="header-tools"></div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="page-head__inner">
+      <span class="marker">Przy stole</span>
+      <h1>Stoły, które <em>prowadzę.</em></h1>
+      <p class="lede">Kampanie, które prowadzę co tydzień — od gotowych światów po własne historie rozwijane razem z drużynami.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <div>
+        <span class="marker" id="campaign-status">Ładowanie…</span>
+        <h2>Tygodniowy rozkład <em>stołów.</em></h2>
+      </div>
+    </div>
+    <div id="campaign-list" class="card-grid" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="wordmark">Vengrath<span class="wordmark__mark">.</span></span>
+      <p class="site-footer__tag">Świat jeszcze się pisze.</p>
+    </div>
+    <div class="site-footer__cols">
+      <div class="site-footer__col">
+        <h5>Strona</h5>
+        <a href="../Campaigns/">Kampanie</a>
+        <a href="../Projects/">Projekty</a>
+        <a href="../Blog/">Blog</a>
+        <a href="../AboutMe/">O mnie</a>
+      </div>
+      <div class="site-footer__col">
+        <h5>Narzędzia</h5>
+        <a href="../charactermancer/">Charactermancer</a>
+        <a href="../AboutMe/illustrations/">Ilustracje</a>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__base">
+    <span>Vengrath</span>
+    <a href="../../">Strona główna ↗</a>
+  </div>
+</footer>
+
+<script src="../../js/site.js"></script>
+<script src="./campaigns.js"></script>
+</body>
+</html>

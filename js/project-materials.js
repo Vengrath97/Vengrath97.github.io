@@ -12,7 +12,7 @@ async function loadProjectMaterials() {
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const manifest = await response.json();
   const manifestUrl = response.url;
-  const pdf = manifest?.pdf && await resolveResource(manifest.pdf.src, manifestUrl) ? { ...manifest.pdf, src: resolveResource(manifest.pdf.src, manifestUrl) } : null;
+  const pdf = await resolvePdf(manifest?.pdf, manifestUrl);
   const images = Array.isArray(manifest?.images)
     ? (await Promise.all(manifest.images.map(async image => {
         if (!image?.src) return null;
@@ -26,6 +26,12 @@ async function loadProjectMaterials() {
   materialHost.replaceChildren(buildMaterialIntro(manifest, pdf, images));
   if (pdf) materialHost.append(buildPdfBlock(pdf));
   if (images.length) materialHost.append(buildImageGallery(images));
+}
+
+async function resolvePdf(pdf, baseUrl) {
+  if (!pdf?.src) return null;
+  const src = resolveResource(pdf.src, baseUrl);
+  return await validResource(src) ? { ...pdf, src } : null;
 }
 
 function resolveResource(src, baseUrl) {
@@ -42,14 +48,14 @@ async function validResource(src) {
 function buildMaterialIntro(manifest, pdf, images) {
   const wrapper = document.createElement('div');
   wrapper.className = 'project-materials-inner project-materials-inner--assets';
-  wrapper.innerHTML = `<div><p class="eyebrow">[ MATERIAŁY ]</p><h2>${escapeHtml(manifest.title || 'Materiały projektu')}</h2></div><p>${escapeHtml(manifest.description || `${pdf ? 'PDF projektu jest dostępny do podglądu i pobrania.' : ''}${pdf && images.length ? ' ' : ''}${images.length ? 'Zdjęcia i ilustracje są dostępne poniżej.' : ''}`)}</p>`;
+  wrapper.innerHTML = `<div><span class="marker">Materiały</span><h2>${escapeHtml(manifest.title || 'Materiały projektu')}</h2></div><p class="prose">${escapeHtml(manifest.description || `${pdf ? 'PDF projektu jest dostępny do podglądu i pobrania.' : ''}${pdf && images.length ? ' ' : ''}${images.length ? 'Zdjęcia i ilustracje są dostępne poniżej.' : ''}`)}</p>`;
   return wrapper;
 }
 
 function buildPdfBlock(pdf) {
   const section = document.createElement('div');
   section.className = 'project-material project-material--pdf';
-  section.innerHTML = `<div class="project-material__head"><div><small>PDF</small><h3>${escapeHtml(pdf.title || 'Dokument projektu')}</h3></div><a class="button project-material__download" href="${safeUrl(pdf.src)}" download>POBIERZ PDF ↗</a></div>`;
+  section.innerHTML = `<div class="project-material__head"><div><span class="label">PDF</span><h3>${escapeHtml(pdf.title || 'Dokument projektu')}</h3></div><a class="btn btn--solid project-material__download" href="${safeUrl(pdf.src)}" download>Pobierz PDF</a></div>`;
   if (pdf.preview !== false) {
     const preview = document.createElement('iframe');
     preview.className = 'project-material__pdf-preview';
@@ -68,9 +74,10 @@ function buildImageGallery(images) {
   title.textContent = 'Zdjęcia i ilustracje';
   section.append(title);
   const grid = document.createElement('div');
-  grid.className = 'project-material__gallery';
+  grid.className = 'gallery';
   for (const item of images) {
     const figure = document.createElement('figure');
+    figure.className = 'gallery-item';
     const image = document.createElement('img');
     image.src = safeUrl(item.src);
     image.alt = item.alt || '';
