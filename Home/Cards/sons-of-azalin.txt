@@ -1,0 +1,4 @@
+Sons of Azalin
+Kampania
+../Graphics/sons-of-azalin.jpg
+../../Subpages/sons-of-azalin.html

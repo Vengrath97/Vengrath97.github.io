@@ -1,4 +1,0 @@
-Tomb of Annihilation
-Kampania
-graphics/tomb-of-annihilation.jpg
-subpages/tomb-of-annihilation.html

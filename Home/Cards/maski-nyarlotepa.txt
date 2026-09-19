@@ -1,0 +1,4 @@
+Maski Nyarlathotepa
+Kampania
+../Graphics/maski-nyarlotepa.jpg
+../../Subpages/maski-nyarlotepa.html

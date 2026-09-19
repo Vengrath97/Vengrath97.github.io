@@ -1,0 +1,4 @@
+Sands of Doom
+Kampania
+../Graphics/sands-of-doom.jpg
+../../Subpages/sands-of-doom.html

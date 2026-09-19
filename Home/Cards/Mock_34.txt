@@ -1,0 +1,4 @@
+Mock_34
+Mock34
+../Graphics/Default.jpg
+../../index.html

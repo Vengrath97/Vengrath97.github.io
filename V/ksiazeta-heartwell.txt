@@ -1,4 +1,0 @@
-Książęta Heartwell
-Kampania
-graphics/ksiazeta-heartwell.jpg
-subpages/ksiazeta-heartwell.html

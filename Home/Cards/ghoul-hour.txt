@@ -1,0 +1,4 @@
+Ghoul Hour
+Sesje
+../Graphics/notes.jpg
+../../Subpages/ghoul-hour.html

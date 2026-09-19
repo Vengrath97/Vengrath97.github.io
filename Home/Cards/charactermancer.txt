@@ -1,0 +1,4 @@
+Charactermancer
+Narzędzia
+../Graphics/overview.jpg
+../../Subpages/charactermancer.html

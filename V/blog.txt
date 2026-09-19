@@ -1,4 +1,0 @@
-Blog
-Blog
-graphics/briefs.jpg
-subpages/blog.html
