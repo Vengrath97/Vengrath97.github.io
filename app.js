@@ -127,16 +127,7 @@ function build(){
         const baseX=(col+.5)*cw;
         const rowH=H/counts[col];
         const baseY=(row+.5)*rowH;
-        // Old shattered-panorama pattern: large, irregularly displaced Voronoi
-        // sites create asymmetric shards while the five-row distribution keeps
-        // the panorama dense and avoids sparse terminal columns.
-        const jx=Math.min(cw*.46,Math.max(22,cw*.20));
-        const jy=Math.min(rowH*.40,Math.max(18,rowH*.17));
-        const diagonal=((col+row)%2===0?1:-1)*cw*.045;
-        sites.push({
-          x:Math.max(18,Math.min(worldW-18,baseX+(hash(i+2)-.5)*jx+diagonal)),
-          y:Math.max(18,Math.min(H-18,baseY+(hash(i+91)-.5)*jy+(hash(i+191)-.5)*rowH*.08))
-        });
+        sites.push({x:Math.max(25,Math.min(worldW-25,baseX+(hash(i+2)-.5)*cw*.48)),y:Math.max(25,Math.min(H-25,baseY+(hash(i+91)-.5)*rowH*.42))});
       }
     }
   }
@@ -162,7 +153,7 @@ function build(){
     const cp=document.createElementNS("http://www.w3.org/2000/svg","clipPath"); cp.id=id;
     const cpPoly=document.createElementNS("http://www.w3.org/2000/svg","polygon"); cpPoly.setAttribute("points",pts(poly)); cp.appendChild(cpPoly); defs.appendChild(cp);
     const g=document.createElementNS("http://www.w3.org/2000/svg","g"); g.setAttribute("clip-path",`url(#${id})`); g.style.cursor="pointer"; g.setAttribute("role","button"); g.setAttribute("tabindex","0"); g.setAttribute("aria-label",d[0]);
-    const bg=document.createElementNS("http://www.w3.org/2000/svg","polygon"); bg.setAttribute("points",pts(poly)); bg.setAttribute("fill",`hsl(${(i*17)%360} 10% ${18+(i%5)*5}%)`); g.appendChild(bg);
+    const bg=document.createElementNS("http://www.w3.org/2000/svg","polygon"); bg.setAttribute("points",pts(poly)); bg.setAttribute("fill",`hsl(${(i*17)%360} 8% ${34+(i%4)*8}%)`); g.appendChild(bg);
     // Size the artwork to THIS shard's bounding box, then clip it to the shard.
     // This prevents a small shard from showing a giant, zoomed image.
     const bb=poly.reduce((a,p)=>({minX:Math.min(a.minX,p.x),maxX:Math.max(a.maxX,p.x),minY:Math.min(a.minY,p.y),maxY:Math.max(a.maxY,p.y)}),{minX:Infinity,maxX:-Infinity,minY:Infinity,maxY:-Infinity});
@@ -185,12 +176,12 @@ function build(){
     }
     const label=document.createElementNS("http://www.w3.org/2000/svg","text");
     label.setAttribute("text-anchor","middle");
-    label.setAttribute("font-family","Georgia,Times New Roman,serif");
-    label.setAttribute("font-weight","700");
-    label.setAttribute("fill","#ead7b6");
+    label.setAttribute("font-family","Trebuchet MS,Segoe UI,sans-serif");
+    label.setAttribute("font-weight","900");
+    label.setAttribute("fill","#fff");
     label.setAttribute("paint-order","stroke");
-    label.setAttribute("stroke","#120b08");
-    label.setAttribute("stroke-width","4");
+    label.setAttribute("stroke","#24142d");
+    label.setAttribute("stroke-width","3.5");
     label.setAttribute("stroke-linejoin","round");
     // Build short lines, then force each line's rendered width to fit the polygon.
     const words=d[0].split(/\s+/);
@@ -251,199 +242,7 @@ function build(){
   panX=Math.max(-Math.max(0,worldW-viewport.clientWidth),Math.min(0,panX));
   canvas.style.transform=`translate3d(${panX}px,0,0)`;
 }
-// Generated from V/*.txt for direct file:// preview.
-const LOCAL_CONTENT = [
-  [
-    "Archive Notes",
-    "Archive",
-    "graphics/archive-notes.svg",
-    "subpages/archive-notes.html",
-    "archive-notes.txt"
-  ],
-  [
-    "Archive",
-    "Archive",
-    "graphics/archive.svg",
-    "subpages/archive.html",
-    "archive.txt"
-  ],
-  [
-    "Assets",
-    "Media",
-    "graphics/assets.svg",
-    "subpages/assets.html",
-    "assets.txt"
-  ],
-  [
-    "Backlog",
-    "Archive",
-    "graphics/backlog.svg",
-    "subpages/backlog.html",
-    "backlog.txt"
-  ],
-  [
-    "Bookmarks",
-    "Reference",
-    "graphics/bookmarks.svg",
-    "subpages/bookmarks.html",
-    "bookmarks.txt"
-  ],
-  [
-    "Briefs",
-    "Reference",
-    "graphics/briefs.svg",
-    "subpages/briefs.html",
-    "briefs.txt"
-  ],
-  [
-    "Calendar",
-    "Projects",
-    "graphics/calendar.svg",
-    "subpages/calendar.html",
-    "calendar.txt"
-  ],
-  [
-    "Contacts",
-    "People",
-    "graphics/contacts.svg",
-    "subpages/contacts.html",
-    "contacts.txt"
-  ],
-  [
-    "Documents",
-    "Projects",
-    "graphics/documents.svg",
-    "subpages/documents.html",
-    "documents.txt"
-  ],
-  [
-    "Guidelines",
-    "Reference",
-    "graphics/guidelines.svg",
-    "subpages/guidelines.html",
-    "guidelines.txt"
-  ],
-  [
-    "History",
-    "Archive",
-    "graphics/history.svg",
-    "subpages/history.html",
-    "history.txt"
-  ],
-  [
-    "Ideas",
-    "Ideas",
-    "graphics/ideas.svg",
-    "subpages/ideas.html",
-    "ideas.txt"
-  ],
-  [
-    "Inbox",
-    "Projects",
-    "graphics/inbox.svg",
-    "subpages/inbox.html",
-    "inbox.txt"
-  ],
-  [
-    "Media",
-    "Media",
-    "graphics/media.svg",
-    "subpages/media.html",
-    "media.txt"
-  ],
-  [
-    "Metrics",
-    "Projects",
-    "graphics/metrics.svg",
-    "subpages/metrics.html",
-    "metrics.txt"
-  ],
-  [
-    "Notes",
-    "Ideas",
-    "graphics/notes.svg",
-    "subpages/notes.html",
-    "notes.txt"
-  ],
-  [
-    "Overview",
-    "Projects",
-    "graphics/overview.svg",
-    "subpages/overview.html",
-    "overview.txt"
-  ],
-  [
-    "People Directory",
-    "People",
-    "graphics/people-directory.svg",
-    "subpages/people-directory.html",
-    "people-directory.txt"
-  ],
-  [
-    "Reference Library",
-    "Reference",
-    "graphics/reference-library.svg",
-    "subpages/reference-library.html",
-    "reference-library.txt"
-  ],
-  [
-    "Research",
-    "Reference",
-    "graphics/research.svg",
-    "subpages/research.html",
-    "research.txt"
-  ],
-  [
-    "Roadmap",
-    "Projects",
-    "graphics/roadmap.svg",
-    "subpages/roadmap.html",
-    "roadmap.txt"
-  ],
-  [
-    "Strategy",
-    "Projects",
-    "graphics/strategy.svg",
-    "subpages/strategy.html",
-    "strategy.txt"
-  ],
-  [
-    "Team",
-    "People",
-    "graphics/team.svg",
-    "subpages/team.html",
-    "team.txt"
-  ],
-  [
-    "Visuals",
-    "Media",
-    "graphics/visuals.svg",
-    "subpages/visuals.html",
-    "visuals.txt"
-  ],
-  [
-    "Workshop",
-    "Ideas",
-    "graphics/workshop.svg",
-    "subpages/workshop.html",
-    "workshop.txt"
-  ]
-];
-
 async function loadContent(){
-  // GitHub Pages / local HTTP server: load the authoritative V/*.txt files.
-  // Direct file:// preview: browsers block fetch() for local files, so use the
-  // generated fallback below. Run tools/build-local-fallback.py after changing V/.
-  const parseRecord = (lines, file) => [
-    lines[0] || "", lines[1] || "", lines[1] || "", lines[2] || "", lines[3] || "", file || ""
-  ];
-
-  if (location.protocol === "file:") {
-    shuffledData = LOCAL_CONTENT.map(r => parseRecord(r, r[4] || ""));
-    build();
-    return;
-  }
-
   try{
     const manifestResponse=await fetch("V/index.json",{cache:"no-cache"});
     if(!manifestResponse.ok) throw new Error("V/index.json could not be loaded");
@@ -454,16 +253,14 @@ async function loadContent(){
       if(!response.ok){ console.warn("Could not load",file); continue; }
       const lines=(await response.text()).replace(/\r/g,"").split("\n").map(x=>x.trim());
       if(lines.length<4 || !lines[0]){ console.warn("Invalid tile file",file); continue; }
-      records.push(parseRecord(lines,file));
+      // [title, tag, tag-compatible field, graphic, destination]
+      records.push([lines[0],lines[1]||"",lines[1]||"",lines[2]||"",lines[3]||"",file]);
     }
     shuffledData=records;
     build();
   }catch(err){
     console.error(err);
-    // If an HTTP fetch fails, the embedded content still gives the page a
-    // usable local preview rather than leaving an empty panorama.
-    shuffledData=LOCAL_CONTENT.map(r => parseRecord(r, r[4] || ""));
-    build();
+    canvas.innerHTML='<div class="load-error">Unable to load content from V/.</div>';
   }
 }
 
@@ -480,4 +277,5 @@ function release(e){down=false;viewport.classList.remove("dragging");try{viewpor
 viewport.addEventListener("pointerup",release);viewport.addEventListener("pointercancel",release);
 viewport.addEventListener("wheel",e=>{const max=Math.max(0,canvas.offsetWidth-viewport.clientWidth);panX=Math.max(-max,Math.min(0,panX+(Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY)));canvas.style.transform=`translate3d(${panX}px,0,0)`;e.preventDefault();},{passive:false});
 window.addEventListener("resize",()=>{panX=0;build();});
+build();
 loadContent();
